@@ -22,11 +22,11 @@ const GoalForm = ({ onGoalAdded, onClose }) => {
     };
 
     return (
-        <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 relative">
+        <div className="bg-surface p-6 rounded-xl shadow-lg border border-gray-800 relative">
             <div className="flex justify-between items-center mb-6">
-                <h3 className="text-xl font-bold text-gray-900">Create New Goal</h3>
+                <h3 className="text-xl font-bold text-white">Create New Goal</h3>
                 {onClose && (
-                    <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
+                    <button onClick={onClose} className="text-gray-400 hover:text-white">
                         <X size={24} />
                     </button>
                 )}
@@ -34,11 +34,11 @@ const GoalForm = ({ onGoalAdded, onClose }) => {
 
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Goal Title</label>
+                    <label className="block text-sm font-medium text-gray-400 mb-1">Goal Title</label>
                     <input
                         type="text"
                         placeholder="e.g. Master React Hooks"
-                        className="w-full px-4 py-2 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 outline-none transition"
+                        className="w-full px-4 py-2 rounded-lg bg-background border border-gray-700 text-white focus:border-white focus:ring-1 focus:ring-white outline-none transition placeholder-gray-600"
                         value={formData.title}
                         onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                         required
@@ -47,21 +47,21 @@ const GoalForm = ({ onGoalAdded, onClose }) => {
 
                 <div className="grid grid-cols-2 gap-4">
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Target Hours</label>
+                        <label className="block text-sm font-medium text-gray-400 mb-1">Target Hours</label>
                         <input
                             type="number"
                             placeholder="10"
-                            className="w-full px-4 py-2 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 outline-none transition"
+                            className="w-full px-4 py-2 rounded-lg bg-background border border-gray-700 text-white focus:border-white focus:ring-1 focus:ring-white outline-none transition placeholder-gray-600"
                             value={formData.target_hours}
                             onChange={(e) => setFormData({ ...formData, target_hours: e.target.value })}
                             required
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Deadline</label>
+                        <label className="block text-sm font-medium text-gray-400 mb-1">Deadline</label>
                         <input
                             type="date"
-                            className="w-full px-4 py-2 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 outline-none transition"
+                            className="w-full px-4 py-2 rounded-lg bg-background border border-gray-700 text-white focus:border-white focus:ring-1 focus:ring-white outline-none transition [color-scheme:dark]"
                             value={formData.deadline}
                             onChange={(e) => setFormData({ ...formData, deadline: e.target.value })}
                         />
@@ -70,7 +70,7 @@ const GoalForm = ({ onGoalAdded, onClose }) => {
 
                 <button
                     type="submit"
-                    className="w-full bg-primary-600 text-white py-3 rounded-xl font-semibold hover:bg-primary-700 transition flex items-center justify-center gap-2 mt-2"
+                    className="w-full bg-white text-black py-3 rounded-lg font-bold hover:bg-gray-200 transition flex items-center justify-center gap-2 mt-2 shadow-[0_0_15px_rgba(255,255,255,0.1)]"
                 >
                     <Plus size={20} />
                     Create Goal

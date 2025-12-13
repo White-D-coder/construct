@@ -25,13 +25,13 @@ const GoalList = ({ goals }) => {
     return (
         <div className="space-y-4">
             {goals.map((goal) => (
-                <div key={goal.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-primary-200 transition-colors group">
+                <div key={goal.id} className="flex items-center justify-between p-4 bg-surface rounded-xl border border-gray-800 hover:border-gray-600 transition-colors group">
                     <div className="flex items-center gap-4">
-                        <button className={`text-gray-400 hover:text-primary-600 transition-colors`}>
-                            {goal.status === 'completed' ? <CheckCircle className="text-green-500" /> : <Circle />}
+                        <button className={`text-gray-500 hover:text-white transition-colors`}>
+                            {goal.status === 'completed' ? <CheckCircle className="text-white" /> : <Circle />}
                         </button>
                         <div>
-                            <h4 className="font-semibold text-gray-900">{goal.title}</h4>
+                            <h4 className="font-semibold text-white">{goal.title}</h4>
                             <div className="flex items-center gap-3 text-sm text-gray-500 mt-1">
                                 <span className="flex items-center gap-1">
                                     <Clock size={14} /> {goal.target_hours}h target
@@ -44,7 +44,7 @@ const GoalList = ({ goals }) => {
                     </div>
                     <button
                         onClick={() => handleDelete(goal.id)}
-                        className="text-gray-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity p-2"
+                        className="text-gray-600 hover:text-white opacity-0 group-hover:opacity-100 transition-opacity p-2"
                     >
                         <Trash2 size={18} />
                     </button>

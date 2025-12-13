@@ -19,7 +19,7 @@ ChartJS.register(
     Legend
 );
 
-const AnalyticsChart = ({ sessions }) => {
+const AnalyticsChart = ({ sessions = [] }) => {
     // Process sessions to get daily duration for the last 7 days
     const last7Days = [...Array(7)].map((_, i) => {
         const d = new Date();
@@ -45,9 +45,11 @@ const AnalyticsChart = ({ sessions }) => {
             {
                 label: 'Study Minutes',
                 data: dataPoints,
-                backgroundColor: 'rgba(79, 70, 229, 0.6)',
-                borderColor: 'rgba(79, 70, 229, 1)',
+                backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                borderColor: 'rgba(255, 255, 255, 1)',
                 borderWidth: 1,
+                borderRadius: 4,
+                hoverBackgroundColor: 'rgba(255, 255, 255, 1)',
             },
         ],
     };
