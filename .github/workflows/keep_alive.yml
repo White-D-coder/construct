@@ -1,0 +1,16 @@
+name: Keep Backend Alive
+
+on:
+  schedule:
+    - cron: '*/12 * * * *' # Every 12 minutes
+  workflow_dispatch: # Allows manual run
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wake up Render
+        run: |
+          # Replace this URL with your actual Render backend URL if different
+          curl -I https://studysphere-backend.onrender.com/
+          echo "Ping sent to backend."
