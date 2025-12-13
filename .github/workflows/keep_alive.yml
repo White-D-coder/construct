@@ -2,8 +2,8 @@ name: Keep Backend Alive
 
 on:
   schedule:
-    - cron: '*/12 * * * *' # Every 12 minutes
-  workflow_dispatch: # Allows manual run
+    - cron: '*/12 * * * *' 
+  workflow_dispatch:
 
 jobs:
   keep-alive:
@@ -12,5 +12,5 @@ jobs:
       - name: Wake up Render
         run: |
           # Replace this URL with your actual Render backend URL if different
-          curl -I https://studysphere-backend.onrender.com/
+          curl -I https://studysphere-backend-in85.onrender.com/
           echo "Ping sent to backend."
