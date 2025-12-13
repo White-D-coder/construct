@@ -102,6 +102,12 @@ exports.updateGoal = async (req, res) => {
 
         if (error) throw error;
 
+        // Check for achievement
+        if (status === 'completed' && existingGoal.status !== 'completed') {
+            const { awardAchievement } = require('./gamificationController');
+            await awardAchievement(req.user.id, 'GOAL_CRUSHER');
+        }
+
         res.json({
             _id: goal.id,
             title: goal.title,

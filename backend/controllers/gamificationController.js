@@ -56,3 +56,37 @@ exports.checkAchievements = async (req, res) => {
         res.status(500).send('Server Error');
     }
 };
+
+exports.awardAchievement = async (userId, code) => {
+    try {
+        // 1. Get achievement ID
+        const { data: achievement, error: achError } = await supabase
+            .from('achievements')
+            .select('id')
+            .eq('code', code)
+            .single();
+
+        if (achError || !achievement) return; // Achievement doesn't exist
+
+        // 2. Check if user already has it
+        const { data: existing, error: checkError } = await supabase
+            .from('user_achievements')
+            .select('id')
+            .eq('user_id', userId)
+            .eq('achievement_id', achievement.id)
+            .single();
+
+        if (existing) return; // Already earned
+
+        // 3. Award it
+        const { error: insertError } = await supabase
+            .from('user_achievements')
+            .insert([{ user_id: userId, achievement_id: achievement.id }]);
+
+        if (insertError) throw insertError;
+
+        console.log(`Awarded achievement ${code} to user ${userId}`);
+    } catch (err) {
+        console.error(`Error awarding achievement ${code}:`, err.message);
+    }
+};
