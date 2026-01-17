@@ -62,6 +62,13 @@ const Login = () => {
                 <p className="mt-6 text-center text-gray-400">
                     Don't have an account? <Link to="/register" className="text-primary-400 hover:text-primary-300 font-medium">Register</Link>
                 </p>
+                <div className="mt-6 p-4 bg-gray-800/50 rounded-xl border border-gray-700 text-sm">
+                    <p className="text-gray-400 font-medium mb-2 text-center">Testing Credentials:</p>
+                    <div className="space-y-1 text-center">
+                        <p className="text-gray-300">Email: <span className="font-mono text-primary-400">test@example.com</span></p>
+                        <p className="text-gray-300">Password: <span className="font-mono text-primary-400">password123</span></p>
+                    </div>
+                </div>
             </motion.div>
         </div>
     );
