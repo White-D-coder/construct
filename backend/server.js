@@ -28,6 +28,7 @@ app.use('/api/feedback', require('./routes/feedback'));
 app.use('/api/profiles', require('./routes/profiles'));
 app.use('/api/requests', require('./routes/requests'));
 app.use('/api/gamification', require('./routes/gamification'));
+app.use('/api/seed', require('./controllers/seedController').seedTelemetry); // Temporary Seed Route
 
 app.get('/', (req, res) => {
     res.send('StudySphere API is running');
