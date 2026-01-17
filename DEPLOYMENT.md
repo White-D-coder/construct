@@ -39,9 +39,8 @@ The frontend is a React application built with Vite.
     *   **Build Command**: `npm run build`
     *   **Output Directory**: `dist`
 4.  **Environment Variables**:
-    *   Add `VITE_API_URL` and set its value to your **Backend URL** from Step 1 (e.g., `https://studysphere-backend.onrender.com`).
-    *   *Note: Ensure the URL does not have a trailing slash for consistency (e.g., `.../api` if your axios config expects it, or just the base domain).*
-    *   Based on your `axios.js`, if it appends `/api`, set `VITE_API_URL` to `https://studysphere-backend.onrender.com/api`.
+    *   Add `VITE_API_URL` and set its value to: `https://studysphere-backend-in85.onrender.com/api`
+    *   **Important**: You MUST include `/api` at the end because your `axios.js` file uses this variable directly as the Base URL.
 5.  **Deploy**: Click "Deploy".
 
 ## Troubleshooting
